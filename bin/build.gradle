@@ -1,0 +1,33 @@
+plugins {
+    id 'org.gradle.playframework' version '0.12'
+}
+
+play {
+    platform {
+        playVersion = '2.8.2'
+        scalaVersion = '2.13.2'
+        javaVersion = JavaVersion.VERSION_1_8
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name "lightbend-maven-release"
+        url "https://repo.lightbend.com/lightbend/maven-releases"
+    }
+    ivy {
+        name "lightbend-ivy-release"
+        url "https://repo.lightbend.com/lightbend/ivy-releases"
+        layout "ivy"
+    }
+}
+
+
+dependencies {
+    implementation "javax.xml.bind:jaxb-api:2.3.1"
+    implementation "de.mkammerer:argon2-jvm:2.7"
+    implementation "commons-lang:commons-lang:2.6"
+    implementation "com.typesafe.play:play-guice_2.13:2.8.2"
+    implementation "ch.qos.logback:logback-classic:1.2.3"
+}
